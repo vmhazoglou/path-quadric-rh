@@ -383,7 +383,7 @@ So **for generic (c, s), every bad point is finite (I = ∅), i.e. a stratified 
 find the expected pattern JIJ, so the check can fail.
 
 **Conclusion.** 𝒵 → 𝔸¹_u is proper, and J_!𝒢 is ULA over u wherever u is not a finite stratified critical value. So
-𝒜^L_s = Rf̄_*J_!𝒢 is lisse away from those values (SGA 4½, Th. finitude, App. 2.4: proper + ULA ⇒ locally constant).
+𝒜^L_s = Rf̄_*J_!𝒢 is lisse away from those values (proper + ULA ⇒ locally constant, by proper base change; see PROOF.md 7.4. An earlier version cited "SGA 4½ App. 2.4", which was not verified).
 By (2a), for an odd number n of half-vertices, u = 0 is not such a value. **So 𝒜^L_s is lisse at 0, and Gap 2 is closed for k ≡ 3 (mod 4).**
 For even n, 𝒜 really is singular at 0, from the open-stratum critical point.
 

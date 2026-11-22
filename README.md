@@ -15,6 +15,8 @@ the Frobenius eigenvalues by √q, **provided** the vanishing statement
 
 holds for infinitely many k. The work here is about (H).
 
+**Start with [`writeups/PROOF.md`](writeups/PROOF.md)**: the argument as one chain. Each step is tagged as proved, cited, sketched or numerical, and the sources are audited for hidden uses of weights. In that audit, every Fourier-theoretic input checked turned out to be weight-free.
+
 ## Findings (details in [`writeups/H_FINDINGS.md`](writeups/H_FINDINGS.md))
 
 1. **(H) is false for even k.** k = 4 with a Kummer sheaf is a counterexample for every choice of coefficients (§1).
@@ -35,6 +37,7 @@ holds for infinitely many k. The work here is about (H).
 ## Layout
 
 - `writeups/`
+  - `PROOF.md`: the self-contained proof sketch, with a source audit and a referee checklist
   - `H_FINDINGS.md`: the main record, from the k = 4 counterexample (§1) to the §12 proof of the last gap
   - `WRITEUP.md`: the toy statement and the exact small-field checks
 - `scripts/`: run from anywhere; outputs go to `data/`
