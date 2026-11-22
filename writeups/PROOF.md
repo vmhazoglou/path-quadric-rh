@@ -227,7 +227,7 @@ Laumon's paper uses weights only in chapter 4, his proof of Weil II, through Del
 5. **The finitely many genericity conditions:** that they are compatible and nonempty over 𝔽_{q^m} for large m.
 
 **Scope and limits.**
-- Only t = χ(f), so only superelliptic curves. This is the class Stepanov's elementary method already covers, so the result is a new route, not a new theorem.
+- Only t = χ(f), so only superelliptic curves. Stepanov–Bombieri already proves RH for all curves elementarily, so the result is a new route, not a new theorem. H_FINDINGS §14 sketches the extension to any tame, geometrically irreducible F of higher rank. It is not yet incorporated here.
 - Only k ≡ 3 (mod 4), which is enough for Corollary 1.2.
 - Extending to general curves needs F of rank > 1 in Proposition 4.1.
 

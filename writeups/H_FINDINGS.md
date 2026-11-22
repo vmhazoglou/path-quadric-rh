@@ -409,3 +409,40 @@ locus; it is not needed, since we only use generic c. The rank-1 restriction sta
 - **Constructibility.** This is not proved for the "bad locus" itself. Instead, Z = supp ℋ^{k−1} of the universal family over (c, s)-space is
   constructible (Rf_! preserves constructibility). On a dense open set, Z ⊂ B, so the §11 scaling argument shows Z is nowhere dense.
 - **Gap 3.** It now uses the canonical maximal lisse open set of the universal family. That set is invariant under the 𝔾_m action (c_{m−1}, c_m, s) ↦ (c_{m−1}/μ, c_m/μ, μs).
+
+## 14. Rank 2: trigonal curves (direction 1)
+F = π_*Q̄_ℓ / Q̄_ℓ for a cubic cover y³ + a(x)y + b(x) = 0. F has rank 2, S₃ monodromy (standard representation, self-dual), and is tame for p ≥ 5.
+Trace function t = #roots − 1 (the j_* convention). Scripts: `trigonal_halves.py`, `fibre_concentration.py`.
+
+**The obstruction is still exactly anti-reversal.**
+- Middle-split detector at k = 5 (p = 61, 73, 97, 109) and k = 7 (p = 61, 73), for T1 and T2:
+  - anti-reversal c, alternating or not, e.g. (1,2,−2,−1), (1,2,3,−3,−2,−1): reads 0.47–2.05;
+  - everything else, including sub-path alternation: |reading| ≤ 0.33, falling with p (0.33 → 0.15 for the worst case).
+- The scatter in the obstructed values is explained exactly. The fixed locus contributes ∏(Σ t²) over (k−1)/2 vertex pairs, and in
+  rank 2, Σ t² = q + O(√q) (F⊗F = 1 ⊕ sgn ⊕ std). Normalised by (Σt²/q)^{(k−1)/2}, every obstructed reading is 0.89–1.00.
+- Twisted criterion: T3 = y³ + y + x³ + 2 is invariant under x ↦ ωx. It fails at the twisted pattern (1,2,3,−3,−2,−ω)
+  (0.63 / 1.00 / 0.85 at p = 61 / 73 / 97); T1 does not (|r| ≤ 0.08).
+- Fibrewise concentration (PROOF Prop. 4.1): max_h |R_h|/q^{k/2} stays in 1.4–7 for p = 61 … 307, k = 3, 5, with no √p growth
+  (`data/fibre_concentration.log`).
+
+**The proof extends (sketch).** The rank-1 inputs were:
+- Prop. 4.1: F ⊗ G irreducible, where G = [λ]^*FT(K_{i−1}) is lisse at Σ;
+- §5(a): no coinvariants;
+- the shift lemma's "lisse twist".
+
+For F geometrically irreducible and tame:
+- *F ⊗ G is irreducible.* Suppose End(F⊗G)^{π₁} ⊋ scalars. Then some constituent W of ad F (lisse off Σ) maps nontrivially to End G (lisse at Σ). So W is lisse on 𝔸¹ and tame at ∞, hence trivial. But (ad F)^{π₁} = 0.
+  Semisimplicity: the Zariski closure of the image of π₁ in GL(F) × GL(G) projects onto two reductive groups, so its unipotent radical is trivial and F⊗G is semisimple.
+- *§5(a).* (F ⊗ ℋ)_{π₁} ≠ 0 ⇒ Hom(ℋ, F^∨) ≠ 0 ⇒ F^∨ is a quotient of ℋ, which is lisse at a. But F is ramified at a.
+- *Shift lemma.* Pulling back a tame local system along z ↦ z·(unit) is étale-locally trivial: (zu)^{1/e} = z^{1/e}u^{1/e}.
+- *j_* stalks at Σ.* Since G is lisse at Σ, j_*F ⊗ G = j_*(F ⊗ G), so the middle extension is preserved.
+- *Parseval.* |t| ≤ rank F gives |R_n| ≤ r^k q^{n(k+3)/2}. The constant is harmless in Lemma 1.1.
+
+Consequence (sketch): the method gives |α| ≤ √q for H¹_c(𝔸¹, j_*F) for every geometrically irreducible, tame F with finite
+(unit-eigenvalue) monodromy and 0 ∉ Σ. That covers every curve with a separable map of degree d < p to ℙ¹ whose
+π_*Q̄_ℓ/Q̄_ℓ is irreducible, e.g. S_d monodromy. Decomposing π_* in general, and the existence of such maps (degree ≤ g+1 maps exist by Riemann–Roch), still need to be written out.
+
+**Correction of an earlier claim.** I said general curves would go "beyond Stepanov". That is wrong: Bombieri's 1973 version of
+Stepanov's method (Sém. Bourbaki 430) proves RH for all curves elementarily. So rank > 1 is a new route, not new reach.
+The real point of rank > 1 is that the extension above never uses finite monodromy except in |t| ≤ r. That is the input
+needed for a Weil-I-style induction (Lefschetz pencils, where F is tame and irreducible with infinite monodromy).

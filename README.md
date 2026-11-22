@@ -29,7 +29,8 @@ holds for infinitely many k. The work here is about (H).
    deg f ≥ 2 and f(0) ≠ 0 (hyperelliptic and superelliptic curves), generic coefficients, and k ≡ 3 (mod 4).
    - It uses Artin vanishing, Verdier duality, Katz–Laumon and Laumon's stationary phase, and splits at the middle vertex.
    - The last gap, local triviality at infinity, is closed by a shift lemma in the (ℙ¹)ⁿ compactification (§12).
-   - The same curves are covered by Stepanov's elementary method, so this is a new route, not a new theorem.
+   - Stepanov–Bombieri already gives an elementary proof of RH for all curves, so this is a new route, not a new theorem.
+   - Rank-2 (trigonal) numerics show the same obstruction, and a sketch extends the proof to any tame, geometrically irreducible F (H_FINDINGS §14).
    - The stationary-phase steps and the local-acyclicity citations need expert checking.
 
 [`writeups/WRITEUP.md`](writeups/WRITEUP.md) has the earlier write-up of the toy statement and the exact small-field checks.
@@ -54,6 +55,7 @@ holds for infinitely many k. The work here is about (H).
 | `halves_general.py`, `run_k7.sh` | Middle-split detector for the anti-reversal obstruction (k = 7 table in `data/run_k7.log`) |
 | `kummer_halves.py` | Checks that the half-sheaves have no Kummer or δ₀ constituent |
 | `boundary_check.py` | Bad-point search at infinity for the §12 shift lemma |
+| `trigonal_halves.py`, `fibre_concentration.py` | Rank-2 (trigonal) detector and fibrewise-concentration test (H_FINDINGS §14) |
 | `euler_half.py`, `euler_generic.py` | Euler characteristic of the half fibres; only re-checks §11 (2a) |
 | `old/` | Superseded scripts: refuted conjectures and early k = 5 versions |
 
