@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "$(dirname "$0")"
 # k=3 (theory known) and k=4 (open) sequences; plain vs generic coefficients
 for fam in x2p1 ell; do
   python3 k4_sequences.py $fam 3 5 5 1,1

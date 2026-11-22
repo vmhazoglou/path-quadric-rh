@@ -5,6 +5,8 @@ Z(T) = exp(sum_n N_n T^n / n) is a polynomial (k even) or 1/polynomial (k odd).
 Usage: python3 k4_sequences.py <family> <k> <p> <nmax> <c1,c2,...>
 """
 import sys, json, time
+from pathlib import Path
+DATA = Path(__file__).resolve().parent.parent / "data"
 import numpy as np
 from ffield import field, path_N, path_N_fft, brute_N, poly_eval
 
@@ -27,4 +29,4 @@ for n in range(1, nmax + 1):
         assert N == brute_N(F, t, c)
     out.append(dict(n=n, q=F["q"], N=N, M=M, t0=int(t[0])))
     print(json.dumps(out[-1]), f"{time.time()-t0:.1f}s", flush=True)
-json.dump(dict(family=fam, k=k, p=p, coeffs=cs, rows=out), open(f"seq_{fam}_k{k}_p{p}_c{'-'.join(map(str,cs))}.json", "w"))
+json.dump(dict(family=fam, k=k, p=p, coeffs=cs, rows=out), open(DATA / f"seq_{fam}_k{k}_p{p}_c{'-'.join(map(str,cs))}.json", "w"))

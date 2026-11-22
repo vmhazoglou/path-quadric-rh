@@ -15,7 +15,7 @@ the Frobenius eigenvalues by √q, **provided** the vanishing statement
 
 holds for infinitely many k. The work here is about (H).
 
-## Findings (details in [`H_FINDINGS.md`](H_FINDINGS.md))
+## Findings (details in [`writeups/H_FINDINGS.md`](writeups/H_FINDINGS.md))
 
 1. **(H) is false for even k.** k = 4 with a Kummer sheaf is a counterexample for every choice of coefficients (§1).
    Odd k is enough for the argument (§2).
@@ -30,30 +30,35 @@ holds for infinitely many k. The work here is about (H).
    - The same curves are covered by Stepanov's elementary method, so this is a new route, not a new theorem.
    - The stationary-phase steps and the local-acyclicity citations need expert checking.
 
-[`WRITEUP.md`](WRITEUP.md) has the earlier write-up of the toy statement and the exact small-field checks.
+[`writeups/WRITEUP.md`](writeups/WRITEUP.md) has the earlier write-up of the toy statement and the exact small-field checks.
 
-## Files
+## Layout
 
-| File | What it does |
+- `writeups/`
+  - `H_FINDINGS.md`: the main record, from the k = 4 counterexample (§1) to the §12 proof of the last gap
+  - `WRITEUP.md`: the toy statement and the exact small-field checks
+- `scripts/`: run from anywhere; outputs go to `data/`
+- `data/`: raw outputs (`*.json` sequences and results, `*.log` run logs)
+
+| Script | What it does |
 |---|---|
 | `ffield.py` | Finite fields F_{p^n} as tables; exact DP and FFT path-quadric sums |
 | `path_quadric.py`, `coeff_check.py` | Original toy checks of the identity |
 | `kummer_check.py`, `kummer_k56.py` | Kummer closed forms; the k = 4 counterexample |
-| `k4_sequences.py`, `analyze_seq.py` | Extension-field sequences and zeta-function sign tests |
+| `k4_sequences.py`, `analyze_seq.py`, `run_k4.sh` | Extension-field sequences and zeta-function sign tests |
 | `transversality_check.py` | Symbolic check of the transversality lemma |
 | `line_obstruction.py` | Prime-field character sums (`chars`, used by the scripts below) |
-| `halves_general.py`, `run_k7.sh` | Middle-split detector for the anti-reversal obstruction (k = 7 table in `run_k7.log`) |
+| `halves_general.py`, `run_k7.sh` | Middle-split detector for the anti-reversal obstruction (k = 7 table in `data/run_k7.log`) |
 | `kummer_halves.py` | Checks that the half-sheaves have no Kummer or δ₀ constituent |
 | `boundary_check.py` | Bad-point search at infinity for the §12 shift lemma |
 | `euler_half.py`, `euler_generic.py` | Euler characteristic of the half fibres; only re-checks §11 (2a) |
 | `old/` | Superseded scripts: refuted conjectures and early k = 5 versions |
-| `*.json`, `*.log` | Raw outputs |
 
 Requires Python 3 with `numpy` and `sympy`. Examples:
 
 ```
-python3 halves_general.py 61 ell 7 4 1,-1,2,-2,1,-1   # anti-reversal case: detector ≈ 0.9
-python3 boundary_check.py 1,-1,2 7                    # expect no bad boundary points
+python3 scripts/halves_general.py 61 ell 7 4 1,-1,2,-2,1,-1   # anti-reversal case: detector ≈ 0.9
+python3 scripts/boundary_check.py 1,-1,2 7                    # expect no bad boundary points
 ```
 
 Written with Claude (Anthropic).

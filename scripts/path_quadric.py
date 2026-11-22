@@ -11,7 +11,7 @@ Setting: p an odd prime, e_p(u) = exp(2 pi i u / p), t : F_p -> Z[zeta_p] a trac
 All arithmetic is exact in Z[zeta_p] (integer coefficient vectors modulo 1+z+...+z^{p-1});
 complex absolute values are only taken at the end, for reporting sizes.
 
-Usage: python3 path_quadric.py [--pmax 43] [--kmax 7] [--out results.json]
+Usage: python3 path_quadric.py [--pmax 43] [--kmax 7] [--out ../data/results.json]
 """
 import argparse, json, math, cmath
 import numpy as np
@@ -260,7 +260,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--pmax", type=int, default=31)
     ap.add_argument("--kmax", type=int, default=6)
-    ap.add_argument("--out", default="results.json")
+    ap.add_argument("--out", default=str(__import__("pathlib").Path(__file__).resolve().parent.parent / "data" / "results.json"))
     ap.add_argument("--pmin", type=int, default=3)
     a = ap.parse_args()
     rows = run(a.pmax, a.kmax, a.pmin)

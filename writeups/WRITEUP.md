@@ -92,7 +92,7 @@ cohomology". §4 shows the coefficients are genuinely needed.
 
 ## 4. Exact numerical checks
 
-Code: `toy/path_quadric.py` and `toy/coeff_check.py`. Arithmetic is exact in `Z[ζ_p]`
+Code: `scripts/path_quadric.py` and `scripts/coeff_check.py`. Arithmetic is exact in `Z[ζ_p]`
 (integer vectors modulo `1+ζ+…+ζ^{p-1}`). `N` is computed by dynamic programming along the
 path, each `R_h` by the transfer operator of §2, and complex absolute values only for
 reporting. Families: `t = χ(x³+2x+3)` (elliptic), `t = ψ(x²)` (Gauss), `t = ψ(x³)` (cubic).
