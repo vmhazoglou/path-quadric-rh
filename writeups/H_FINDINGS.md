@@ -469,3 +469,10 @@ needed for a Weil-I-style induction (Lefschetz pencils, where F is tame and irre
 - Irreducibility of E′ follows from a three-line reflection/transvection lemma plus the conjugacy of vanishing cycles (5.4); Kazhdan–Margulis is not needed.
 - The case d = 1 is the n = 0 instance. Lefschetz pencils give simply branched maps, which have S_N monodromy and are tame for odd p.
   This resolves §14's open items (decomposing π_*; maps of degree < p).
+
+### 15b. The j_! pass (WEIL_I §2A)
+- Every step of PROOF.md transfers to F = j_!E, for E tame, geometrically irreducible, ramified somewhere, of any rank, with unipotent
+  monodromy allowed.
+- The single global replacement is (★): if g is lisse at a ramified point a, then H²_c(U, E ⊗ g) = 0, because E is irreducible.
+- **Caught:** PROOF §5(a)'s local-coinvariant argument is false for unipotent E (E_{I_a} ≠ 0), and (★) fixes it.
+- Lemma 2.2 (away from L), 7.3 and 7.4 now have explicit rank-free proofs: smooth projection to the Σ-coordinates, and a Kummer root of a unit.

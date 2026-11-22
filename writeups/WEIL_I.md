@@ -17,7 +17,7 @@ The key structural point: Deligne obtains the **pointwise purity of E** from Thm
 
 ## 2. The path-quadric main lemma
 
-**Main Lemma (sketch) [S].** Let p be odd. Let E be a lisse sheaf on U = 𝔸¹ ∖ Σ with the following properties:
+**Main Lemma [P, at the standard of `PROOF.md`; see §2A].** Let p be odd. Let E be a lisse sheaf on U = 𝔸¹ ∖ Σ with the following properties:
 - (a) E is tame, at Σ and at ∞;
 - (b) E is geometrically irreducible and nontrivial, and ramified at some point of Σ;
 - (c) 0 ∉ Σ;
@@ -26,6 +26,8 @@ The key structural point: Deligne obtains the **pointwise purity of E** from Thm
 Then every eigenvalue α of F on H¹_c(𝔸¹, j_!E) satisfies |ια| ≤ q^{(w+1)/2}. Since H¹_c(𝔸¹, j_!E) ↠ H¹(ℙ¹, j_*E), the same bound holds there.
 
 *Proof outline.* Run `PROOF.md` with F := j_!E.
+
+(Full step-by-step check in §2A.)
 
 1. **Positivity (PROOF §1) [P].** Set t = ι(trace of F). Then t = 0 on Σ, and by (d), |t| ≤ r·q^{w/2} on U. Iterated Parseval gives |R_n| ≤ r^k q^{n(wk + k + 3)/2}. Under (A) and (H), Lemma 1.1 gives |α|^k ≤ q^{(wk + k + 3)/2}, so letting k → ∞ gives |α| ≤ q^{(w+1)/2}.
    - No reality or rationality is used. The positive signs come from cohomological degrees, not from |trace|².
@@ -43,6 +45,43 @@ Then every eigenvalue α of F on H¹_c(𝔸¹, j_!E) satisfies |ια| ≤ q^{(w+
    - (2a) and the shift lemma (2b).
 
    In the shift lemma, the "lisse twist" near ∞ is the pullback of a tame local system along z ↦ z·(unit), which is étale-locally trivial. If ∞ ∈ U, which can be arranged for a Lefschetz pencil, there is nothing to check at all.
+
+## 2A. The j_! pass through `PROOF.md`, step by step
+
+**Hypotheses.** F = j_!E, where E is lisse of rank r on U = 𝔸¹ ∖ Σ, tame, geometrically irreducible, and ramified at some a ∈ Σ, with 0 ∉ Σ.
+
+The local monodromy may be **unipotent**, so infinite and with nonzero inertia invariants. That is the Lefschetz case. Every rank-1 argument that said "χ_a is nontrivial, so there are no local (co)invariants" is therefore **false** here and must be replaced by a global one.
+
+The global replacement used throughout is a single fact:
+
+> **(★)** Let g be a constructible sheaf on 𝔸¹ that is lisse at a. Then H²_c(U, E ⊗ g) = 0.
+>
+> *Proof.* H²_c sees only a dense open U″ ⊂ U where g is lisse. There it is the coinvariants (E ⊗ g_η)_{π₁(U″)}. If these are nonzero, some π₁(U″)-map g_η → E^∨ is nonzero. E^∨ is irreducible under π₁(U″), because π₁(U″) ↠ π₁(U), so the map is surjective. Hence I_a acts trivially on E^∨, so E is unramified at a. Contradiction. ∎
+>
+> The same holds with E replaced by E ⊗ L_ψ(b·), since L_ψ(b·) is lisse at a and the twist is still irreducible.
+
+| `PROOF.md` step | j_! status | Change needed |
+|---|---|---|
+| §1 identity, Lemma 1.1 | ✓ | Only \|t\| ≤ r·q^{w/2} changes, which is harmless. The sign bookkeeping is cohomological and rank-free. |
+| (A) | ✓ | H⁰_c(j_!) = 0. H²_c = E_{π₁} = 0, since E is irreducible and nontrivial. |
+| Lemma 2.1 (transversality) | ✓ | Depends only on Σ and c. |
+| **Lemma 2.2, away from L** | ✓, **reproved** | Let x ∈ V with x_i ∈ Σ exactly for i ∈ I. Transversality to the strata means the projection x_I : V → 𝔸^I is smooth at x. Near x, F^{⊠k}\|_V ≅ x_I^*(⊠_{i∈I} j_!E) ⊗ (lisse in the x_j with j ∉ I, which lie in U). Smooth pullback, shifted by the relative dimension, and tensoring with a lisse sheaf both preserve perversity. This replaces "non-characteristic restriction" and holds for any constructible factors. |
+| **Lemma 2.2, along L** | ✓ | The even coordinates are 0 ∉ Σ, and at most one odd coordinate is in Σ (genericity in Σ and c). Take that coordinate x_i as the line coordinate. Near the point, F^{⊠k}\|_V ≅ (j_!E(x_i) ⊠ Q̄_ℓ,C) ⊗ lisse, which is perverse. |
+| §3 h-family | ✓ | Rank-free. |
+| **Prop. 4.1** | ✓, **reproved** | K_{i+1} = j_!E ⊗ P with P = [λ]^*FT(K_i[1]). Then K_{i+1} = j_!(E ⊗ j^*P), which is perverse because j is affine and j_! is t-exact. So no irreducibility is needed. The singular-set recursion is unchanged: E is tame at ∞, so tensoring by E keeps the frequencies at ∞, and Laumon's stationary phase is rank-free. So P is lisse at Σ under the same genericity Σ ∩ ρΣ = ∅. Concentration: H¹_c(𝔸¹, K_k[1]) = H²_c(U, E ⊗ ℋ^{−1}P), which vanishes by (★). |
+| **Cor. 4.2 (stalks)** | ✓, **reproved** | The stalk of FT(K_n[1]) at b is concentrated in one degree, because H²_c(U, E ⊗ g ⊗ L_ψ(b·)) = 0 by (★). This is all that §3.2, §5(c) and 7.1 use. Simplicity and "rank ≥ 2" are not used. |
+| **§5(a)** | ✓, **reproved** | H²_c(U, E ⊗ ℋ^{k−2}) = 0 by (★), with ℋ^{k−2} lisse at a by Lemma 5.1. The rank-1 text ("global coinvariants are a quotient of the local ones") **fails for unipotent E**, since E_{I_a} ≠ 0. |
+| §5(b), §5(c), Lemma 5.1 | ✓ | Rank-free: universal family and torus action. |
+| §6 (dilation lemma, Prop. 6.3) | ✓ | Rank-free. |
+| 7.1 (𝒜 perverse) | ✓ | Uses Cor. 4.2, which holds as above. |
+| 7.2 (stationary phase) | ✓ | Rank-free. |
+| **7.3 (2a), finite points** | ✓, **made explicit** | At a finite point where Q_L restricted to its stratum is submersive, (Q_L, x_I) is smooth. The sheaf is then x_I^*(⋯) ⊗ lisse, which is ULA over 𝔸¹_u. So non-criticality gives lisseness of 𝒜, for any constructible factors. `PROOF.md` left this step implicit. |
+| **7.4 (2b), shift lemma** | ✓, **made explicit** | For free m, the factor E(x_m) is lisse, hence constant on a strictly local neighbourhood. For m ∈ I (x_m = ∞, with z = 1/x_m), Φ_δ is z ↦ zw with w a unit. On a strictly local S, w^{1/e} ∈ 𝒪_S for every e prime to p. So z and zw induce the same map π₁^tame(S ∖ D) = Ẑ′(1) → π₁^tame(punctured disc at ∞). E is tame at ∞, so (zw)^*E ≅ z^*E. This holds for **unipotent** monodromy as well, and is trivial if ∞ ∈ U. |
+| Genericity | ✓ | Each condition is "c outside a proper closed set" depending on (Σ, E), so they are nonempty over 𝔽_{q^m} for large m. |
+
+**Conclusion of the pass.** The Main Lemma holds to exactly the standard of `PROOF.md`. No step uses rank 1, finite monodromy, j_* = j_!, or irreducibility of anything except E. Four arguments are new or reproved: (★), Lemma 2.2 away from L, Prop. 4.1, and §5(a). Two are made explicit: 7.3 at finite points, and 7.4 for tame unipotent E.
+
+In rank 1 these are strengthenings, not corrections, of `PROOF.md`: there χ_a ≠ 1, so the local argument in §5(a) was valid.
 
 ## 3. Plugging into Weil I
 
@@ -134,10 +173,7 @@ There are exact zeros at p ≡ 3 (mod 4): every R_h = 0 for the second family, a
 
 ## 5. To check before taking this seriously
 
-1. **The j_! adaptation of `PROOF.md` §§2–7, line by line.** In particular:
-   - Lemma 2.2 near points of L where x_i ∈ Σ, now with j_!E of higher rank;
-   - 7.1, where 𝒜 must be perverse;
-   - that every genericity condition depends only on (Σ, E).
+1. ~~The j_! adaptation of `PROOF.md`~~: done in §2A. **What remains is the `PROOF.md` chain itself** (its §9 referee list). The j_! version introduces no new gaps.
 2. ~~Weil I §7 for odd d~~: done in §3A. It is simpler than the even case, because δ·δ = ±2 rules out the degenerate subcases.
 3. ~~E′ ramified at every s~~: done in §3A (reflections) and in the even-d paragraph (transvections).
 3′. **The cited Lefschetz theory for n even (Weil I 5.8 with SGA 7 XV), checked directly in the source.** Deligne states it but does not prove it ("Ce cas ne nous servira pas", 4.3 B). The n = 0 case is elementary.
