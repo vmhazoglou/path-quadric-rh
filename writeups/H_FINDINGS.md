@@ -459,3 +459,13 @@ needed for a Weil-I-style induction (Lefschetz pencils, where F is tame and irre
   - concentration bounded for p ≤ 307;
   - anti-reversal normalised readings 0.95–0.99;
   - generic |r| ≤ 0.027.
+
+### 15a. The odd-d dévissage (WEIL_I §3A–B)
+- For n = d − 1 even, Weil I 5.8 gives δ·δ = ±2 ≠ 0 and reflection monodromy. The Leray dévissage then has no degenerate cases:
+  - H¹(D, R^n) is a quotient of H¹(j_*E);
+  - H¹(j_*E) ↪ H¹(j_*E′);
+  - cases A and B use Y, of dimension d − 2.
+- So the induction over all d closes, modulo the Main Lemma and cited Lefschetz theory. Exact purity follows directly, without the X^k trick.
+- Irreducibility of E′ follows from a three-line reflection/transvection lemma plus the conjugacy of vanishing cycles (5.4); Kazhdan–Margulis is not needed.
+- The case d = 1 is the n = 0 instance. Lefschetz pencils give simply branched maps, which have S_N monodromy and are tame for odd p.
+  This resolves §14's open items (decomposing π_*; maps of degree < p).
