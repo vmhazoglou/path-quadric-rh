@@ -446,3 +446,16 @@ Consequence (sketch): the method gives |α| ≤ √q for H¹_c(𝔸¹, j_*F) for
 Stepanov's method (Sém. Bourbaki 430) proves RH for all curves elementarily. So rank > 1 is a new route, not new reach.
 The real point of rank > 1 is that the extension above never uses finite monodromy except in |t| ≤ r. That is the input
 needed for a Weil-I-style induction (Lefschetz pencils, where F is tame and irreducible with infinite monodromy).
+
+## 15. Toward Weil I (direction 2); see WEIL_I.md
+- Source check of Weil I. Thm 3.2 gets pointwise purity of the vanishing local system from symplectic monodromy plus rationality of
+  traces (§6, Kazhdan–Margulis and Chebotarev). The induction (§7) covers even d only, so the odd-dimensional fibres are never covered
+  by induction.
+- Path-quadric replacement: a Main Lemma for F = j_!E (E lisse, tame, geometrically irreducible, ramified somewhere, pointwise pure
+  of weight w) gives |α| ≤ q^{(w+1)/2} on H¹_c, with no reality or rationality input. In the j_! form, the irreducibility in
+  Prop. 4.1 is unnecessary: F ⊗ P is perverse because j is affine, and concentration only needs E^∨ not to be a quotient of G_k, which is lisse at Σ.
+- The cost: purity of E must come from induction, so the induction must run over all d, including an odd-d version of Weil I §7.
+- Numerics (Legendre and y² = x³ + x + λ; rank 2, weight 1, unipotent monodromy):
+  - concentration bounded for p ≤ 307;
+  - anti-reversal normalised readings 0.95–0.99;
+  - generic |r| ≤ 0.027.
