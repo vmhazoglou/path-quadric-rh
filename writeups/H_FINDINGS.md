@@ -476,3 +476,9 @@ needed for a Weil-I-style induction (Lefschetz pencils, where F is tame and irre
 - The single global replacement is (★): if g is lisse at a ramified point a, then H²_c(U, E ⊗ g) = 0, because E is irreducible.
 - **Caught:** PROOF §5(a)'s local-coinvariant argument is false for unipotent E (E_{I_a} ≠ 0), and (★) fixes it.
 - Lemma 2.2 (away from L), 7.3 and 7.4 now have explicit rank-free proofs: smooth projection to the Σ-coordinates, and a Kummer root of a unit.
+
+## 16. The obstruction theorem (OBSTRUCTION.md)
+- **Theorem A.** For generic anti-reversal c, Gr^W_k H^k_c(V) ⊇ H¹(C)(−n) as a subquotient, so (H) fails.
+- **Proof route:** survival of Leray E₂^{1,2n}; V_s is a fibre product; S_n = Σ_s D_s = q^{n+1} + O(q^n), by Parseval twice;
+  this forces a constant line Q̄_ℓ(−n) in Gr^W_{2n}ℋ^{2n}; (★) transfers it to H¹_c.
+- **Numerics:** (N − q^n M)/q^n stays bounded on the locus (k = 5, 7; g = 1, 2; p ≤ 199). Generic c gives N/q^n bounded instead.

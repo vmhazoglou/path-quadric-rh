@@ -39,6 +39,7 @@ holds for infinitely many k. The work here is about (H).
 
 - `writeups/`
   - `PROOF.md`: the self-contained proof sketch, with a source audit and a referee checklist
+  - `OBSTRUCTION.md`: Theorem A, which shows that (H) fails on the anti-reversal locus, with the exact class H¹(C)(−n) (uses Weil II)
   - `WEIL_I.md`: exploratory sketch replacing Deligne's Weil I Thm 3.2 and §6 by a path-quadric main lemma
   - `H_FINDINGS.md`: the main record, from the k = 4 counterexample (§1) to the §12 proof of the last gap
   - `WRITEUP.md`: the toy statement and the exact small-field checks
@@ -57,6 +58,7 @@ holds for infinitely many k. The work here is about (H).
 | `kummer_halves.py` | Checks that the half-sheaves have no Kummer or δ₀ constituent |
 | `boundary_check.py` | Bad-point search at infinity for the §12 shift lemma |
 | `trigonal_halves.py`, `fibre_concentration.py` | Rank-2 (trigonal) detector and fibrewise-concentration test (H_FINDINGS §14) |
+| `obstruction_check.py` | Checks N = q^n M + O(q^n) on the anti-reversal locus (OBSTRUCTION.md) |
 | `legendre_tests.py` | Weil-I-type tests: F = j_!E for elliptic families (infinite, unipotent monodromy) |
 | `euler_half.py`, `euler_generic.py` | Euler characteristic of the half fibres; only re-checks §11 (2a) |
 | `old/` | Superseded scripts: refuted conjectures and early k = 5 versions |
