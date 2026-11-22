@@ -78,3 +78,64 @@ D_s := tr(Frob_s | 𝒦_s) = Σ_u A_s(u)², with A_s(u) = Σ_{Q_L(y;s)=u} ∏ t(
 ## What it would take to prove Conjecture C
 - *Exact form:* show Gr_{2n}ℋ^{2n} = Q̄_ℓ(−n) ⊕ G′, where G′ contributes no weight-k part to H¹_c, and that the lower Leray terms contribute no weight-k part.
 - *Exact locus:* run `PROOF.md` §5–6 with c in a codimension-≤ n locus. Prop. 6.3's dilation argument needs a 1-parameter family of rescalings c_L ↦ μc_L staying inside the locus; AR_k is exactly where the two halves are related by σ. A classification of loci where 𝒫^L and (𝒫^R)^∨ share a constituent for all s would finish it.
+
+---
+
+## Direction 3: graph quadrics
+
+For a graph G on k vertices with weights c, let Q_G = Σ_{e=ij} c_e x_i x_j and V_G = {Q_G = 0}. F is as above.
+
+**Definition.** A *sign-reversing involution* of (G, c) is an involutive automorphism σ of G such that:
+- σ fixes no edge setwise;
+- c_{σe} = −c_e for every edge e.
+
+Write f₀ for its number of fixed vertices, which are pairwise non-adjacent, and P for its number of swapped pairs, so k = 2P + f₀.
+
+**Fixed-locus class [S].** Let Γ = Fix(σ). Then Q|_Γ = −Q|_Γ = 0, so Γ ⊂ V. Also F^{⊠k}|_Γ ≅ (F ⊗ F)^{⊠P} ⊠ F^{⊠f₀} ⊇ Q̄_ℓ^{⊠P} ⊠ F^{⊠f₀}. This
+gives a class H¹(C)^{⊗f₀}(−P) in degree 2P + f₀ = k and weight k. Its predicted trace contribution to N is (−1)^k·q^P·(−M)^{f₀}.
+
+**Conjecture G.** Assume Stab(Σ) = 1 (otherwise twisted versions, as in H§10a, also occur). Then (H) fails for (G, c) if and only if (G, c) has a sign-reversing involution.
+When it fails, Gr^W_k H^k_c(V_G) ⊇ ⊕_σ H¹(C)^{⊗f₀(σ)}(−P(σ)). For generic c, (H) holds for every graph, including even k.
+
+**Status.**
+- Theorem A is the case where G is a path and σ is the reversal (f₀ = 1).
+- *The split case [S].* Suppose G ∖ Fix(σ) = A ⊔ σA with no edges between A and σA. Then Q = Q_A(y; s) − Q_A(z; s) over the fixed coordinates s ∈ 𝔸^{f₀}. The proof of Theorem A goes through with Leray over 𝔸^{f₀}, in the form fibre product, then Parseval, then a constant line, then (★). This is not written out.
+- *The non-split case.* Examples are C4 with the rotation, and cycles in general. These need another argument; the fixed-locus class must be shown to survive directly.
+
+**Numerics** (`scripts/graph_quadrics.py`, `data/graph_quadrics.log`; y² = x³ + 2x + 3; p = 43 … 211):
+
+| (G, c) | σ | prediction | observed |
+|---|---|---|---|
+| P3–P5, S4, S5, Y5, C3–C5, T4, K4, generic c | none | N = O(q^{(k−1)/2}) | \|N\|/q^{(k−1)/2} ≤ 4.3 |
+| C4, (1, 2, −1, −2) | rotation, f₀ = 0 | N ≈ q² | (N − q²)/q^{1.5} ∈ [−1.3, 1.1]; N/q^{1.5} grows 7 → 14 |
+| C4, (1, 2, −2, −1) | reflection, f₀ = 2 | N ≈ qM² | (N − qM²)/q^{1.5} ∈ [−1.1, 1.0] |
+| S5, (1, −1, 2, −2) | (12)(34), f₀ = 1 | N ≈ q²M | (N − q²M)/q² ∈ [−1.3, 0.7] |
+| P5, (1, 2, −2, −1) | reversal (Theorem A) | N ≈ q²M | (N − q²M)/q² ∈ [−1.3, 0.4] |
+| S4, (1, −1, 5) | swap fixes edge 03, so not valid | bounded | ≤ 6.0, typically about 1 |
+| C5, (1, −1, 1, −1, 2) | every reflection fixes an edge | bounded | ≤ 1.4 |
+
+**Corrections.**
+- The even-k failure of H§1 is special to Kummer sheaves. For F = χ(f), the even-k graphs P4, S4, C4, K4 and T4 are all fine for generic c.
+- The table `chars()` in `line_obstruction.py` used a non-primitive "primitive root" at p ∈ {41, 191, 251, 311, 331, 409, 571}. This is now fixed. Of the earlier logs, only the p = 41 rows of `graph_quadrics.log` were affected, and they were removed.
+
+---
+
+## Direction 2: monodromy of the h-family 𝒲
+
+𝒲 = R^kπ_!(F^{⊠k} ⊗ L_ψ(hQ)) on 𝔾_m has trace R_h. Equivalently, 𝒲 = FT(RQ_!F^{⊠k})|_{𝔾_m}.
+
+**Conjecture D.** For generic c, 𝒲 is lisse on a dense open of 𝔾_m, pure of weight k, and geometrically irreducible, and
+G_geom ⊇ SL_N with N = rank 𝒲 ≥ 3. Hence, by Deligne's equidistribution theorem (once the determinant is controlled), R_h/q^{k/2}
+becomes equidistributed like the trace of a Haar-random element of U(N) (or of the relevant subgroup).
+
+**Evidence** (`scripts/w_moments.py`, `data/w_moments.log`; p up to 601):
+- For generic c (k = 3 and 5, genus 1 and 2), the moments approach the U(N) values (N ≥ 3) of 1, 2 and 6:
+  - M₂ = avg |R_h|²/q^k ≈ 0.79–1.15;
+  - M₄ ≈ 1.1–2.6;
+  - M₆ ≈ 1.9–13, noisy.
+- avg R_h²/q^k → 0, so 𝒲 is not self-dual.
+- On the anti-reversal locus, R_h is real, so 𝒲 ≅ 𝒲^∨, and M₂, M₄ are inflated. This is consistent with the constant quotient of Theorem A plus a self-dual remainder.
+
+**Route to a proof.**
+- *Irreducibility.* 𝒲 is a Fourier transform, so irreducibility reduces to that of the quadratic pushforward RQ_!F^{⊠k}, away from its punctual part. For the path, Q splits at the middle vertex into the halves 𝒫^L, 𝒫^R of `PROOF.md`. Then 𝒲 is a multiplicative-convolution-type combination of them over s, and Theorem B's (b) = 0 says exactly that the halves share no constituent.
+- *Big monodromy.* Use Katz's toolkit: local monodromy at 0 and ∞ via Laumon's local FT (all computed in `PROOF.md` §4), plus Gabber–Katz or Larsen's alternative. Larsen's alternative needs M₄ = 2 exactly, which is a statement about H^*_c of a 4-fold fibre product. That is the same kind of computation as Step 4 of Theorem A.

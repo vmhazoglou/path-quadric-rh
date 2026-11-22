@@ -7,7 +7,8 @@ Conjecture: (H) fails  <=>  F(r1 s) F(r3 s) F(r5 s) is geometrically trivial.
 Failure is detected by size: (H) with weights <= k-1 gives |N| <= C p^{(k-1)/2} = C p^2, and an H^k_c term gives about p^{5/2}."""
 import numpy as np, cmath
 def chars(p, d):
-    g = next(g for g in range(2, p) if all(pow(g, (p-1)//r, p) != 1 for r in {2, 3} | ({(p-1)//6} - {1}) if (p-1) % r == 0) and pow(g,(p-1)//2,p)!=1 and pow(g,(p-1)//3,p)!=1)
+    fac = [r for r in range(2, p) if (p-1) % r == 0 and all(r % u for u in range(2, int(r**.5)+1))]   # prime factors of p-1
+    g = next(g for g in range(2, p) if all(pow(g, (p-1)//r, p) != 1 for r in fac))   # primitive root
     log = [0]*p; a = 1
     for e in range(p-1): log[a] = e; a = a*g % p
     w = cmath.exp(2j*cmath.pi/d)
