@@ -111,22 +111,58 @@ Put ℋ^j(s) = H^j_c(V_s, F^{⊠(k−1)}). Leray for V → 𝔸¹_s says H^k_c(V
 
 **(c) = 0.** Run §3 for V_s, using Corollary 4.2 and Künneth: R_h(s) = R^L_h(s) R^R_h(s). This gives ℋ^j = 0 for j ≥ k, for every s.
 
-**(b) = 0 if ℋ^{k−1} vanishes at generic s,** since a punctual sheaf has H¹_c = 0. By §3 applied to V_s, ℋ^{k−1}(s) ≅ H²_c(𝔾_m, 𝒫^L_s ⊗ 𝒫^R_s), where 𝒫^{L,R}_s are the h-sheaves of the two halves. Coinvariants of a tensor product vanish unless 𝒫^L_s and (𝒫^R_s)^∨ share a Jordan–Hölder constituent. Lemma 6.1 and Theorem 7.1 below exclude that for generic (c, s).
+**(b) = 0 if ℋ^{k−1} vanishes at generic s,** since a punctual sheaf has H¹_c = 0. By §3 applied to V_s, ℋ^{k−1}(s) ≅ H²_c(𝔾_m, 𝒫^L_s ⊗ 𝒫^R_s), where 𝒫^{L,R}_s are the h-sheaves of the two halves. Coinvariants of a tensor product vanish unless 𝒫^L_s and (𝒫^R_s)^∨ share a Jordan–Hölder constituent. Proposition 6.3 below shows that, for generic c, this happens for only finitely many s.
 
 **(a) = 0 if ℋ^{k−2} is lisse at some point a ∈ Σ.** There the inertia acts on F ⊗ ℋ^{k−2} by the nontrivial character χ, so the global coinvariants, which are a quotient of the local ones, vanish.
-- *Lemma 5.1 (Gap 3) [P].* The substitution (c_{m−1}, c_m, s) ↦ (c_{m−1}/μ, c_m/μ, μs) preserves V_s and the sheaf. So the singular s-set satisfies S(c_μ) = μS(c).
-- If some a ∈ Σ were singular for generic c, then a/μ would lie in S(c) for infinitely many μ. That is impossible, because S(c) is finite and the bad locus is constructible.
-
-## 6. Shared constituents are Kummer (Gap 1) [S]
-
-**Lemma 6.1.** For generic (c, s), any common constituent of 𝒫^L_s and (𝒫^R_s)^∨ is a Kummer sheaf L_χ′ (χ′ = 1 allowed).
+*Lemma 5.1 (Gap 3) [P].* For c outside a proper closed subset, ℋ^{k−2} is lisse at every a ∈ Σ.
 
 *Proof.*
-- Rescaling c_L ↦ μc_L multiplies Q_L by μ. So 𝒫^L ↦ [μ]^*𝒫^L, while 𝒫^R is unchanged.
-- If the locus B of (c, s) with a non-Kummer shared constituent were dense, then for a generic point of B, a fixed constituent C of 𝒫^R would be ≅ [μ]^*C′_μ for a dense set of μ. Here each C′_μ is one of the finitely many constituents of 𝒫^L.
-- So some C′ is isomorphic to [μ]^*C′ for infinitely many μ. That forces its singular set in 𝔾_m to be empty, and rules out wild ramification at 0 and ∞. So C′ is a Kummer sheaf. ∎
+- **Universal family.** Let P = C × 𝔸¹_s, where C ⊂ 𝔾_m^{k−1} is the open set of coefficient vectors c. Let 𝒦 = Rf_!(F^{⊠(k−1)}) for the universal family {(c, s, x) : x ∈ V_{c,s}} → P. Then 𝒦 is constructible [C: SGA 4 XVII 5.3.6, SGA 4½ Th. finitude 1.1], and its fibres are the H*_c(V_{c,s}) by proper base change.
+- **Lisse locus.** Let P° be the largest open subset on which every ℋ^j(𝒦) is lisse. It is dense by constructibility. Let Y = P ∖ P°, a proper closed subset.
+- **The torus action.** g_μ : (c, s) ↦ (c_μ, μs), with c_μ = (…, c_{m−1}/μ, c_m/μ, …), preserves V_{c,s} and the sheaf on the nose. So g_μ^*𝒦 ≅ 𝒦. Since P° is defined canonically, g_μ(Y) = Y.
+- **Conclusion.** Fix a ∈ Σ and let Y_a = {c : (c, a) ∈ Y}, a closed subset of C. Suppose Y_a = C. Then Y ⊇ g_μ(C × {a}) = C × {μa} for every μ, so Y ⊇ C × 𝔾_m, which is dense in P. That contradicts Y being a proper closed subset. So Y_a ≠ C.
+- For c ∉ ⋃_{a∈Σ} Y_a, 𝒦 is lisse on a neighbourhood of each (c, a). Its restriction to the line {c} × 𝔸¹_s is therefore lisse at a. That restriction is ℋ^•, by proper base change. ∎
 
-Two routine verifications are left out (§9, items 1–2): that B is constructible, and the lemma that an irreducible lisse sheaf on 𝔾_m stable under infinitely many dilations is Kummer.
+## 6. Shared constituents are Kummer (Gap 1) [P, using C]
+
+All sheaves here are over k̄. A *Kummer sheaf* means a rank-1 lisse sheaf on 𝔾_m that is tame at 0 and ∞, i.e. a continuous character of π₁^tame(𝔾_m) ≅ Ẑ′(1). These include the trivial sheaf and characters of infinite order.
+
+**Lemma 6.1 (Artin–Schreier reduced form) [standard].** Let K = k̄((s)). Every class in K/℘(K), where ℘(y) = y^p − y, has a unique representative Σ_{j∈J} a_j s^{−j}, with J finite and J ⊂ {j ≥ 1 : p ∤ j}.
+
+*Proof.*
+- *Existence.* k̄[[s]] ⊂ ℘(k̄[[s]]): the constant term is handled because k̄ is algebraically closed, and for f ∈ s·k̄[[s]] take y = −Σ_{i≥0} f^{p^i}. Also a s^{−pj} ≡ a^{1/p} s^{−j} modulo ℘(K).
+- *Uniqueness.* Suppose Σ a_j s^{−j} = y^p − y. If y had a pole of order e > 0, the pole of y^p would have order pe, which is divisible by p, and it would dominate. So y ∈ k̄[[s]], and all a_j = 0. ∎
+
+Under s ↦ r^{n′} with p ∤ n′, reduced representatives go to reduced representatives. So the same uniqueness holds on the maximal tame extension K^t = ⋃_{p∤n} k̄((t^{1/n})), with exponents in ℚ_{>0} whose numerators are prime to p.
+
+**Lemma 6.2 (dilation lemma) [P].** Let C be an irreducible perverse sheaf on 𝔾_m with [μ]^*C ≅ C for infinitely many μ ∈ k̄^×. Then C ≅ ℒ[1] for a Kummer sheaf ℒ.
+
+*Proof.*
+1. **The μ form a group.** The set H of such μ is a subgroup of k̄^×, since [μ]^*[μ′]^* = [μμ′]^*. H is infinite.
+2. **C is lisse on 𝔾_m.** C is not punctual, because [μ]^*δ_a = δ_{a/μ}. So C = j_{!*}𝒞[1] for an irreducible local system 𝒞 with finite singular set S ⊂ 𝔾_m. Since S is H-stable and H-orbits in 𝔾_m are infinite, S = ∅.
+3. **C is tame at ∞; the case of 0 is the same with t = x.** Let t = 1/x, K = k̄((t)), let I ⊃ P be the inertia group and its wild subgroup, and let K^t = (K^sep)^P.
+   - For λ ∈ k̄^×, choose a compatible system of roots λ^{1/n}. Let σ̃_λ act on K^t by t^{1/n} ↦ λ^{1/n}t^{1/n}, and extend it to K^sep. Since [λ]^* induces σ_λ : t ↦ λ^{−1}t at ∞, we get σ̃_λ^*(𝒞|_I) ≅ 𝒞|_I for λ ∈ H. Different extensions differ by inner automorphisms of I.
+   - P is pro-p and ℓ ≠ p, so ρ(P) is a finite p-group G. Let E be the fixed field of ker(ρ|_P) inside K^sep, so E/K^t is Galois with group G. The kernel is normal in I and stable under every σ̃_λ (λ ∈ H), so E is stable under the group Γ generated by I and these σ̃_λ.
+   - Suppose G ≠ 1. Its Frattini quotient G/Φ(G) ≅ 𝔽_p^r is nonzero, and the corresponding maximal elementary abelian subextension E₁ ⊂ E is also Γ-stable. By Artin–Schreier, E₁ corresponds to a nonzero finite subgroup W ⊂ K^t/℘(K^t), and W is Γ-stable.
+   - Γ acts on the finite set W, so the stabilizer Γ_ξ of any ξ ∈ W ∖ {0} has finite index. The map σ̃_λγ ↦ λ (γ ∈ I) sends Γ onto H, so the image of Γ_ξ is a subgroup H_ξ ⊂ H of finite index, hence infinite.
+   - Fix λ ∈ H_ξ, so σ̃_λ(ξ) = γ(ξ) for some γ ∈ I. Write ξ = Σ_r a_r t^{−r}, reduced, with all r ∈ (1/n)ℤ for one n prime to p. Tame inertia acts on t^{1/n} through μ_n, so γ multiplies t^{−r} by ζ^{−nr} for some ζ ∈ μ_n. Meanwhile σ̃_λ multiplies t^{−r} by (λ^{1/n})^{−nr}.
+   - Uniqueness of reduced representatives (Lemma 6.1) then gives, for every r with a_r ≠ 0: (λ^{1/n})^{nr} = ζ^{nr}. Raising to the n-th power, λ^{nr} = 1. So every λ ∈ H_ξ is a root of unity of order dividing the fixed integer nr. That is finitely many λ, a contradiction.
+   - Hence G = 1: P acts trivially, and 𝒞 is tame at ∞.
+4. **C is Kummer.** 𝒞 is now an irreducible representation of π₁^tame(𝔾_m) ≅ Ẑ′(1), which is procyclic. An irreducible continuous representation of a procyclic group over an algebraically closed field is 1-dimensional. ∎
+
+**Proposition 6.3 (Gap 1) [P].** For c outside a proper closed subset, ℋ^{k−1}(c, s) = 0 for all but finitely many s.
+
+*Proof.*
+- **Setup.** With P = C × 𝔸¹_s and 𝒦 as in Lemma 5.1, let Z = supp ℋ^{k−1}(𝒦). Z is constructible, since 𝒦 is. On the dense open set where §3–4 apply to V_s (the genericity conditions of Proposition 4.1 for both halves), §5(b) shows that (c, s) ∈ Z implies 𝒫^L_{c,s} and (𝒫^R_{c,s})^∨ share a constituent. Replace U₂ below by its intersection with this set.
+- **Removing Kummer constituents.** Let U₂ ⊂ P be the dense open set of Theorem 7.1, on which 𝒫^L has no Kummer constituent. For (c, s) ∈ Z ∩ U₂, the shared constituent is therefore not Kummer.
+- **Z is nowhere dense.** Suppose not. Then Z ∩ U₂ contains a dense open set W.
+  - Write c = (c_L, c_R). Rescaling c_L ↦ μc_L multiplies Q_L by μ, so 𝒫^L ↦ [μ]^*𝒫^L, while 𝒫^R is unchanged.
+  - Take any (c, s) ∈ W. The set {μ : (μc_L, c_R, s) ∈ W} is a nonempty open subset of 𝔾_m (it contains μ = 1), so it is infinite. For each such μ, some non-Kummer constituent C′ of 𝒫^L_{c,s} satisfies [μ]^*C′ ≅ C for some constituent C of (𝒫^R_{c,s})^∨.
+  - Both sets of constituents are finite. So one pair (C′, C) occurs for infinitely many μ, and then [μ/μ′]^*C′ ≅ C′ for infinitely many ratios.
+  - By Lemma 6.2, C′ is Kummer. Contradiction.
+- **Conclusion.** So Z is contained in a proper closed subset Y ⊂ P. The set {c : {c} × 𝔸¹ ⊂ Y} is closed. It is not all of C, since otherwise Y = P. For c outside it, Y ∩ ({c} × 𝔸¹) is finite. ∎
+
+Proposition 6.3 is exactly what §5(b) needs.
 
 ## 7. No Kummer constituent: the half-sheaf is lisse at u = 0 (Gap 2) [P, using C]
 
@@ -159,9 +195,9 @@ So the tame part at ∞ comes only from FT^{(0,∞′)}(φ₀𝒜). A Kummer con
 
   The definition of ULA used is Deligne, SGA 4½ [Th. finitude] A.2.9, as quoted in Katz–Laumon 2.4.3.
 
-Since Rf̄_*J_!𝒢 = 𝒜, by 7.3 and 7.4 𝒜 is lisse at 0. By 7.2, 𝒫^L_s has no Kummer constituent. With Lemma 6.1 this gives:
+Since Rf̄_*J_!𝒢 = 𝒜, 7.3 and 7.4 show that 𝒜 is lisse at 0. By 7.2:
 
-**Theorem 7.1.** For generic (c, s) and n odd, 𝒫^L_s and (𝒫^R_s)^∨ share no constituent. Hence (b) = 0 in §5.
+**Theorem 7.1.** For n odd, there is a dense open set U₂ ⊂ P of parameters (c, s) on which 𝒫^L_s has no Kummer constituent. U₂ is the complement of the finitely many polynomial conditions in 7.3 and 7.4. With Proposition 6.3, this gives (b) = 0 in §5.
 
 ## 8. Audit: no weights or purity
 
@@ -180,7 +216,11 @@ Laumon's paper uses weights only in chapter 4, his proof of Weil II, through Del
 
 ## 9. What a referee should check
 
-1. **Lemma 6.1:** that the locus B is constructible, and that an irreducible lisse sheaf on 𝔾_m isomorphic to infinitely many of its dilations is Kummer. The intended argument: the set of μ with [μ]^*C ≅ C is a constructible subgroup, so it is all of 𝔾_m; then C is equivariant, hence a character sheaf.
+1. **§6 (Gap 1), now proved.**
+   - Constructibility comes from the support of ℋ^{k−1} of the universal family (Proposition 6.3), not from the bad locus directly.
+   - The dilation lemma (6.2) needs only that the μ form an infinite group, via Artin–Schreier reduced forms. No equivariance argument is needed.
+   - Worth a careful read: step 3 of Lemma 6.2. The lifts σ̃_λ, and the reduction from the p-group G to its elementary abelian quotient.
+   - Lemma 5.1 (Gap 3) was rewritten the same way, using the canonical lisse locus of the universal family and its 𝔾_m-symmetry.
 2. **Proposition 4.1:** the h-independent recursion for the singular sets, and the genericity condition Σ ∩ ρΣ = ∅. This is where the rank-1 hypothesis enters.
 3. **Lemma 2.2:** the local product structure along L, and non-characteristic restriction away from L.
 4. **7.4:** that the étale-local product structure, with the lisse twist L_χ(unit), really gives ULA in the sense of A.2.9. I believe this is immediate from smooth base change.

@@ -397,3 +397,15 @@ from infinity.
 For F = χ(f) (f squarefree, deg ≥ 2, f(0) ≠ 0), generic c, and k ≡ 3 (mod 4), every step of the reduction of (H) is now argued:
 §8, 9a, 10(c), and Gaps 1, 2, 3. The statement that is still only numerical is that the anti-reversal class lies outside the generic
 locus; it is not needed, since we only use generic c. The rank-1 restriction stays. None of this is refereed.
+
+## 13. Gap 1 and Gap 3 made rigorous (see PROOF.md §5–6)
+- **Dilation lemma (PROOF 6.2).** An irreducible perverse C on 𝔾_m with [μ]^*C ≅ C for infinitely many μ is Kummer.
+  - Such μ form an infinite group H. H-stability then empties the singular set.
+  - Tameness at 0 and ∞: the wild image is a finite p-group. Its maximal elementary abelian subextension gives a finite
+    Artin–Schreier subgroup W ⊂ K^t/℘K^t, stable under the dilations (up to tame inertia). On reduced representatives, a dilation by λ
+    rescales the coefficient of t^{−r} by λ^{−r}, and tame inertia by a root of unity. So only roots of unity of bounded order
+    can stabilize a nonzero ξ ∈ W. The group H_ξ is infinite, so W = 0.
+  - Tame π₁ is procyclic, so C has rank 1.
+- **Constructibility.** This is not proved for the "bad locus" itself. Instead, Z = supp ℋ^{k−1} of the universal family over (c, s)-space is
+  constructible (Rf_! preserves constructibility). On a dense open set, Z ⊂ B, so the §11 scaling argument shows Z is nowhere dense.
+- **Gap 3.** It now uses the canonical maximal lisse open set of the universal family. That set is invariant under the 𝔾_m action (c_{m−1}, c_m, s) ↦ (c_{m−1}/μ, c_m/μ, μs).
